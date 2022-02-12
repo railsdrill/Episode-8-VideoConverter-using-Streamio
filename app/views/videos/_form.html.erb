@@ -1,0 +1,36 @@
+<%= form_with(model: video) do |form| %>
+  <% if video.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(video.errors.count, "error") %> prohibited this video from being saved:</h2>
+
+      <ul>
+        <% video.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :video %>
+    <%= form.file_field :video %>
+  </div>
+  <div class="field">
+    <%= form.label :audio_format %>
+    <%= form.select(:audio_format, ["mp3", "aac"]) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :video_format %>
+    <%= form.select(:video_format, ["mp4", "mov", "f4v"] )%>
+  </div>
+
+  <div class="field">
+    <%= form.label :resolution %>
+    <%= form.select(:resolution, ["1920x1080", "1280x720", "854x480"]) %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

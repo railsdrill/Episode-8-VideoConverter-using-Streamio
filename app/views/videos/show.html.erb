@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Audio format:</strong>
+  <%= @video.audio_format %>
+</p>
+
+<p>
+  <strong>Video format:</strong>
+  <%= @video.video_format %>
+</p>
+
+<p>
+  <strong>Resolution:</strong>
+  <%= @video.resolution %>
+</p>
+
+<%= link_to 'Edit', edit_video_path(@video) %> |
+<%= link_to 'Back', videos_path %>
+<video controls>
+<source src="<%= url_for(@video.video) %>">
+
+</video>
